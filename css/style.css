@@ -5,6 +5,7 @@
   --text-color: #333;
   --bg-color: #f8f9fa;
   --white-color: #ffffff;
+  --header-height: 70px; /* 新增：定義導覽列高度 (15px padding + 40px logo + 15px padding) */
 }
 * {
   box-sizing: border-box;
@@ -90,6 +91,7 @@ header nav {
 
 /* --- Hero 區塊 --- */
 #hero {
+  padding-top: var(--header-height); /* 新增：為 fixed header 預留空間 */
   background-image: linear-gradient(
       rgba(13, 44, 74, 0.7),
       rgba(13, 44, 74, 0.7)

@@ -1,7 +1,7 @@
 /* --- 全域與基礎設定 --- */
 :root {
-  --primary-color: #0d2c4a;
-  --secondary-color: #d4af37;
+  --primary-color: #0a2e50;
+  --secondary-color: #ffd700;
   --text-color: #333;
   --bg-color: #f8f9fa;
   --white-color: #ffffff;
@@ -92,10 +92,7 @@ header nav {
 /* --- Hero 區塊 --- */
 #hero {
   padding-top: var(--header-height); /* 新增：為 fixed header 預留空間 */
-  background-image: linear-gradient(
-      rgba(13, 44, 74, 0.7),
-      rgba(13, 44, 74, 0.7)
-    ),
+  background-image: linear-gradient(rgba(13, 46, 80, 1), rgba(13, 46, 80, 1)),
     url(https://images.unsplash.com/photo-1581092921462-6849a6e3a453?q=80&w=2070&auto=format&fit=crop);
   background-size: cover;
   background-position: center;
@@ -125,6 +122,13 @@ header nav {
   font-size: 1.2em;
   color: var(--secondary-color);
   font-weight: bold;
+}
+.gold-text {
+  background: linear-gradient(45deg, #d4af37, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* 保險加這行 */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
 }
 
 /* --- About 區塊 --- */
@@ -233,6 +237,35 @@ footer {
   text-align: center;
   padding: 20px;
 }
+/* --- 浮動 LINE 按鈕 --- */
+.floating-line-btn {
+  position: fixed; /* 關鍵！讓按鈕固定在螢幕上 */
+  bottom: 30px; /* 距離螢幕底部 30px */
+  right: 30px; /* 距離螢幕右側 30px */
+  z-index: 999; /* 確保它顯示在最上層 */
+
+  /* 以下是美學樣式 */
+  background-color: #06c755; /* ✨ 使用 LINE 官方的綠色 */
+  color: var(--white-color); /* 圖示顏色設為白色 */
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* 讓按鈕變成圓形 */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* 加上更明顯的陰影 */
+
+  /* 使用 Flexbox 讓圖示完美置中 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 32px; /* 調整 LINE 圖示的大小 */
+  text-decoration: none; /* 移除連結底線 */
+  transition: transform 0.3s ease; /* 加入平滑的過渡效果 */
+}
+
+.floating-line-btn:hover {
+  transform: scale(1.1) rotate(10deg); /* 滑鼠懸停時輕微放大並旋轉，增加趣味性 */
+}
+
 /* --- RWD 響應式設計 (小於等於 768px 的裝置) --- */
 @media (max-width: 768px) {
   /* --- 通用調整 --- */
@@ -292,7 +325,10 @@ footer {
   #hero h1 {
     font-size: 2.5em;
   }
-
+  .gold-text {
+    font-size: 1em;
+    padding: 0 10px;
+  }
   /* --- 將所有「多欄式網格」變為「單欄」 --- */
   /* 這一步是 RWD 的核心，處理產品、優勢、聯絡我們區塊 */
   .product-grid,

@@ -213,3 +213,56 @@ footer {
   text-align: center;
   padding: 20px;
 }
+/* --- RWD 響應式設計 (小於等於 768px 的裝置) --- */
+@media (max-width: 768px) {
+  /* --- 通用調整 --- */
+  section {
+    padding: 50px 20px; /* 在手機上，區塊的上下留白可以少一點 */
+  }
+
+  h2 {
+    font-size: 1.8em; /* 區塊標題稍微縮小，避免在手機上過大 */
+  }
+
+  /* --- 導覽列調整 --- */
+  header nav {
+    flex-direction: column; /* 關鍵！將水平排列的導覽列改為垂直堆疊 */
+    gap: 20px; /* 增加 Logo 和選單之間的垂直間距 */
+  }
+
+  header nav ul {
+    flex-direction: column; /* 選單項目也改為垂直堆疊 */
+    align-items: center; /* 讓所有選單項目置中對齊 */
+    padding-left: 0; /* 移除 ul 內建的左邊距 */
+    width: 100%;
+  }
+
+  header nav ul li {
+    margin-left: 0; /* 移除水平間距 */
+    margin-bottom: 15px; /* 改為垂直間距 */
+  }
+
+  /* --- Hero 區塊調整 --- */
+  #hero h1 {
+    font-size: 2.5em; /* 縮小主標題字體，讓它在手機上能完整顯示 */
+  }
+
+  /* --- 將所有「多欄式網格」變為「單欄」 --- */
+  /* 這一步是 RWD 的核心，處理產品、優勢、聯絡我們區塊 */
+  .product-grid,
+  .why-us-grid {
+    grid-template-columns: 1fr; /* 強制網格佈局變為單欄 */
+  }
+
+  .contact-wrapper {
+    flex-direction: column; /* 將左右兩欄的聯絡區塊改為上下堆疊 */
+    gap: 30px;
+  }
+
+  /* --- 聯絡資訊與地圖寬度調整 --- */
+  .contact-info,
+  .contact-map {
+    flex: none; /* 取消彈性分配，讓他們自然寬度 */
+    width: 100%;
+  } /* 所有手機版樣式都寫在這裡 */
+}

@@ -63,21 +63,29 @@ header nav {
   width: auto;
   vertical-align: middle;
 }
-header nav ul {
+
+/* --- 導覽列選單 --- */
+.nav-menu {
   list-style: none;
   display: flex;
 }
-header nav ul li {
+.nav-menu li {
   margin-left: 25px;
 }
-header nav ul li a {
+.nav-menu li a {
   text-decoration: none;
   color: var(--primary-color);
   font-weight: bold;
   transition: color 0.3s;
 }
-header nav ul li a:hover {
+.nav-menu li a:hover {
   color: var(--secondary-color);
+}
+
+/* --- 漢堡選單 (預設隱藏) --- */
+#menu-toggle,
+.hamburger-menu {
+  display: none;
 }
 
 /* --- Hero 區塊 --- */
@@ -225,26 +233,57 @@ footer {
   }
 
   /* --- 導覽列調整 --- */
-  header nav {
-    flex-direction: column; /* 關鍵！將水平排列的導覽列改為垂直堆疊 */
-    gap: 20px; /* 增加 Logo 和選單之間的垂直間距 */
+  .hamburger-menu {
+    display: flex; /* 在手機版顯示漢堡圖示 */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+  }
+  .hamburger-menu span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 3px;
   }
 
-  header nav ul {
+  .nav-menu {
+    display: none; /* 預設隱藏選單 */
+    position: absolute;
+    top: 70px; /* 導覽列高度 */
+    left: 0;
+    width: 100%;
+    background-color: var(--white-color);
     flex-direction: column; /* 選單項目也改為垂直堆疊 */
     align-items: center; /* 讓所有選單項目置中對齊 */
     padding-left: 0; /* 移除 ul 內建的左邊距 */
-    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
-
-  header nav ul li {
+  .nav-menu li {
     margin-left: 0; /* 移除水平間距 */
-    margin-bottom: 15px; /* 改為垂直間距 */
+    padding: 15px 0;
   }
 
-  /* --- Hero 區塊調整 --- */
+  /* 當 checkbox 被勾選時，顯示選單 */
+  #menu-toggle:checked ~ .nav-menu {
+    display: flex;
+  }
+
+  /* --- Hero 區塊調整 (修正版) --- */
+  #hero {
+    height: 75vh; /* 直接設定一個適合手機的高度，例如 75% 螢幕高，比 100vh 緊湊 */
+    min-height: auto; /* 不再需要 min-height */
+  }
+
+  /* 我們繼承了桌面版的 flex 置中屬性，所以 hero-content 會自動置中 */
+  .hero-content {
+    /* 這個 class 目前不需要額外樣式，但我們先留著以備不時之需 */
+  }
+
   #hero h1 {
-    font-size: 2.5em; /* 縮小主標題字體，讓它在手機上能完整顯示 */
+    font-size: 2.5em;
   }
 
   /* --- 將所有「多欄式網格」變為「單欄」 --- */

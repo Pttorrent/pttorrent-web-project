@@ -107,19 +107,9 @@ header nav {
   align-items: center;
   text-align: center;
 }
-.hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px; /* 新增：用 gap 控制標題和副標題之間的間距，更精準 */
-  transform: translateY(
-    1rem
-  ); /* 微調：將內容稍微下移，讓大標題更接近視覺中心 */
-}
 #hero h1 {
   font-size: 3.5em;
   color: var(--white-color);
-  margin-bottom: 0; /* 關鍵：移除全域 h1 的 margin，改由 flex gap 控制 */
 }
 #hero p {
   font-size: 1.2em;
@@ -285,8 +275,13 @@ footer {
 
   /* --- Hero 區塊調整 (修正版) --- */
   #hero {
-    height: 50vh; /* 直接設定一個適合手機的高度，例如 75% 螢幕高，比 100vh 緊湊 */
+    height: 45vh; /* 直接設定一個適合手機的高度，例如 75% 螢幕高，比 100vh 緊湊 */
     min-height: auto; /* 不再需要 min-height */
+  }
+
+  /* 我們繼承了桌面版的 flex 置中屬性，所以 hero-content 會自動置中 */
+  .hero-content {
+    /* 這個 class 目前不需要額外樣式，但我們先留著以備不時之需 */
   }
 
   #hero h1 {

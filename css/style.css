@@ -275,7 +275,7 @@ footer {
 
   /* --- Hero 區塊調整 (修正版) --- */
   #hero {
-    height: 75vh; /* 直接設定一個適合手機的高度，例如 75% 螢幕高，比 100vh 緊湊 */
+    height: 45vh; /* 直接設定一個適合手機的高度，例如 75% 螢幕高，比 100vh 緊湊 */
     min-height: auto; /* 不再需要 min-height */
   }
 

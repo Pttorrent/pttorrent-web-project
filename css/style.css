@@ -26,6 +26,12 @@ h3 {
   color: var(--primary-color);
   margin-bottom: 20px;
 }
+/* 新增：統一強調文字的樣式 */
+strong,
+b {
+  font-weight: bold;
+  color: var(--primary-color);
+}
 section {
   padding: 80px 20px;
 }
@@ -141,6 +147,30 @@ header nav {
   margin: 0 auto;
   text-align: left;
 }
+
+/* 新增：品牌名稱解釋區塊 */
+.name-explanation {
+  display: flex;
+  gap: 30px;
+  margin: 40px auto; /* 上下間距，並維持水平置中 */
+  max-width: 800px; /* 與段落寬度對齊 */
+  text-align: left;
+}
+.name-part {
+  flex: 1;
+  background-color: var(--bg-color);
+  padding: 25px;
+  border-left: 4px solid var(--primary-color);
+  border-radius: 0 4px 4px 0;
+}
+.name-part h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+.name-part p {
+  max-width: 100%; /* 覆蓋 #about p 的 max-width */
+}
+
 #about p:last-child {
   margin-top: 20px;
 }
@@ -207,9 +237,6 @@ header nav {
 .contact-info p {
   margin-bottom: 20px;
   line-height: 1.8;
-}
-.contact-info p strong {
-  color: var(--primary-color);
 }
 .contact-info a {
   color: var(--primary-color);
@@ -328,6 +355,11 @@ footer {
   .gold-text {
     font-size: 1em;
     padding: 0 10px;
+  }
+
+  .name-explanation {
+    flex-direction: column;
+    gap: 20px;
   }
   /* --- 將所有「多欄式網格」變為「單欄」 --- */
   /* 這一步是 RWD 的核心，處理產品、優勢、聯絡我們區塊 */
